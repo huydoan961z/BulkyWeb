@@ -1,0 +1,42 @@
+﻿@model List<Category> //Model is a list of Category in the CategoryController
+
+
+
+<div class="container">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h1 class="text-primary">Category List</h1>
+		</div>
+		<div class="col-6" text-end>
+			<button>
+				<a asp-controller="Category" asp-action="Create"> add new </a>
+
+			</button>
+			
+		</div>
+	</div>
+	<table class="table table-boarded table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>DisplayOrder</th>
+				<th>Name</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@* To take the date from @model use Model(pascal type)  *@
+			@foreach (var item in Model.OrderBy(a => a.Name))
+			{
+				<tr>
+					<td> @item.Id</td>
+					<td>@item.DisplayOrder</td>
+					<td>@item.Name</td>
+				</tr>
+			}
+
+		</tbody>
+
+	</table>
+
+</div>
