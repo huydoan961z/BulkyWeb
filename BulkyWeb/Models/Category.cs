@@ -4,21 +4,18 @@ namespace BulkyWeb.Models
 {
     public class Category
     {
-        
-        [Key] // data anotation
+        [Key] // Data annotation for primary key
+        [Required]
         public int Id { get; set; }
-        [Required]
-        [Display(Name = "Category Name")] // data anotation
-		[MaxLength(50)]// data anotation
-		[MinLength(3)]
 
-		public string Name { get; set; } 
         [Required]
-		[Display(Name = "Display Order")] // data anotation
-		public int DisplayOrder { get; set; }
-        public Category()
-        {
-            
-        }
+        [Display(Name = "Category Name")] // Data annotation for display name
+        //[MaxLength(10)] // Uncomment this if you want to limit the length
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Display Order")] // Data annotation for display name
+        //[Range(1, 10)] // Uncomment this to add a range constraint
+        public int DisplayOrder { get; set; }
     }
 }
